@@ -88,7 +88,7 @@ zdrow = zdrow.T
 bst = dfD[[date]]
 bst = bst.T
 lista_indeksow = []
-lista = list(zdrowie)
+lista = list(zdrow)
 for i in range(len(lista)):
     if int(zdrow[i]) > int(bst[i]):
         lista_indeksow.append(i)
