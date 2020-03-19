@@ -41,7 +41,20 @@ def countries_with_no_deaths_count(date: datetime.date) -> int:
     """
     
     # Your code goes here
-    pass
+assert type(date) == datetime.date
+date = format_date(date)
+art = dfC[[date]]
+art = art.T
+bst = dfD[[date]]
+bst = bst.T
+lista = list(art)
+licznik = 0
+
+for i in range(len(lista)):
+    if int(art[i]) != 0 and (int(bst[i]) == 0):
+        licznik += 1
+
+return licznik
 
 
 def more_cured_than_deaths_indices(date: datetime.date) -> List[int]:
@@ -68,4 +81,15 @@ def more_cured_than_deaths_indices(date: datetime.date) -> List[int]:
     """
     
     # Your code goes here
-    pass
+assert type(date) == datetime.date
+date = format_date(date)
+zdrow = dfR[[date]]
+zdrow = zdrow.T
+bst = dfD[[date]]
+bst = bst.T
+lista_indeksow = []
+lista = list(zdrowie)
+for i in range(len(lista)):
+    if int(zdrow[i]) > int(bst[i]):
+        lista_indeksow.append(i)
+return lista_indeksow
